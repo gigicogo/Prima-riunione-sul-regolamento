@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>La prima riunione: IA in un ente pubblico</title>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eef3f3;--panel:#fff;--ink:#12262b;--mute:#4d6468;--line:#c9d6d7;--lag:#0e5a63;--lag2:#d5e8e8;--alert:#b83a26;--alert2:#f8e2dd;--ok:#1f7a4d;}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0d1a1d;--panel:#152a2e;--ink:#e6f0f0;--mute:#9db5b8;--line:#2a4448;--lag:#5cc2cc;--lag2:#1b3c41;--alert:#ff8a73;--alert2:#3b2320;--ok:#6fd6a0;}}
+:root[data-theme="dark"]{--bg:#0d1a1d;--panel:#152a2e;--ink:#e6f0f0;--mute:#9db5b8;--line:#2a4448;--lag:#5cc2cc;--lag2:#1b3c41;--alert:#ff8a73;--alert2:#3b2320;--ok:#6fd6a0;}
+*,*:before,*:after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 "Source Sans 3",system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque","Source Sans 3",system-ui,sans-serif;line-height:1.15;margin:0}
+main{max-width:760px;margin:0 auto;padding:20px 16px 56px}
+.bar{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:18px}
+.dots{display:flex;gap:6px}
+.dots i{width:28px;height:6px;border-radius:3px;background:var(--line)}
+.dots i.on{background:var(--lag)}
+.timer{font:600 15px "Source Sans 3",sans-serif;background:var(--panel);border:1px solid var(--line);color:var(--ink);border-radius:999px;padding:6px 14px;cursor:pointer;min-width:96px}
+.timer.warn{border-color:var(--alert);color:var(--alert)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:22px}
+.quote{border-left:4px solid var(--lag);padding:2px 0 2px 16px;margin:18px 0;font-size:19px}
+h1{font-size:clamp(30px,6vw,44px);margin-bottom:10px}
+h2{font-size:clamp(22px,4.5vw,30px);margin-bottom:8px}
+.lead{color:var(--mute);margin:0 0 16px}
+ul.plain{padding-left:20px;margin:8px 0 18px}
+.btn{font:600 17px "Source Sans 3",sans-serif;background:var(--lag);color:#fff;border:0;border-radius:10px;padding:12px 22px;cursor:pointer}
+:root[data-theme="dark"] .btn,:root:not([data-theme="light"]) .btn{color:#06181b}
+@media (prefers-color-scheme:light){.btn{color:#fff}}
+.btn:disabled{opacity:.4;cursor:not-allowed}
+.btn.ghost{background:transparent;color:var(--lag);border:1px solid var(--lag)}
+button:focus-visible,input:focus-visible{outline:3px solid var(--lag);outline-offset:2px}
+input[type=text]{font:inherit;width:100%;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);margin:6px 0 16px}
+.opts{display:grid;gap:10px;margin:14px 0 20px}
+.opt{text-align:left;font:inherit;color:var(--ink);background:var(--bg);border:2px solid var(--line);border-radius:10px;padding:13px 15px;cursor:pointer;transition:border-color .15s,background .15s}
+.opt:hover{border-color:var(--lag)}
+.opt[aria-pressed=true]{border-color:var(--lag);background:var(--lag2)}
+.tag{display:inline-block;font-weight:600;font-size:14px;color:var(--mute);margin-bottom:6px}
+.event{background:var(--alert2);border:2px solid var(--alert);border-radius:14px;padding:18px;margin-bottom:22px}
+.event h2{color:var(--alert)}
+.crit{display:grid;grid-template-columns:150px 1fr 44px;align-items:center;gap:10px;margin:10px 0}
+.track{height:12px;background:var(--line);border-radius:6px;overflow:hidden}
+.fill{height:100%;background:var(--lag);border-radius:6px;transition:width .6s}
+.big{font:700 clamp(40px,10vw,64px)/1 "Bricolage Grotesque",sans-serif;color:var(--lag)}
+.rev{border-top:1px solid var(--line);padding:14px 0}
+.rev b{display:block}
+.good{color:var(--ok);font-weight:600}.bad{color:var(--alert);font-weight:600}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:14px 0}
+.two div{border:1px solid var(--line);border-radius:10px;padding:12px;background:var(--bg)}
+.strong{background:var(--lag2);border-radius:12px;padding:16px;margin:16px 0}
+.row{display:flex;flex-wrap:wrap;gap:10px}
+@media (max-width:560px){.crit{grid-template-columns:1fr 1fr 36px}.two{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<main id="app"></main>
+<script>
+var D=[
+{k:"Prima cosa da capire",q:"Quale informazione manca sull'uso attuale dell'IA?",o:[
+{t:"Quali strumenti di IA sono già usati, da chi, per quali attività e con quali dati.",s:{conc:5},f:"Mappare l'esistente è il punto di partenza: senza fatti, ogni regola è al buio."},
+{t:"Quali strumenti esistono sul mercato e quanto costano.",s:{conc:3},f:"Utile, ma viene dopo: prima serve sapere cosa succede già negli uffici."},
+{t:"Cosa prevede la normativa per ogni categoria di rischio.",s:{conc:2},f:"Il quadro normativo serve, ma da solo non dice cosa fare lunedì mattina."},
+{t:"Chi ha usato l'IA senza permesso, per intervenire.",s:{conc:1},f:"Cercare colpevoli spinge le persone a nascondere gli usi, invece di farli emergere."}]},
+{k:"Persone da coinvolgere",q:"Chi chiamereste alla prima riunione, e perché?",o:[
+{t:"Responsabili dei processi, RTD/ICT e, quando servono valutazioni su dati personali o sicurezza, le funzioni competenti. Ognuno con un motivo chiaro.",s:{coin:5},f:"Chi conosce i processi, chi coordina il digitale, chi valuta rischi: ruoli chiari e gruppo snello."},
+{t:"Solo RTD/ICT: sono i più esperti di tecnologia.",s:{coin:3},f:"Manca chi conosce il lavoro reale degli uffici e chi valuta dati e sicurezza."},
+{t:"Tutti i dipendenti, in una grande assemblea.",s:{coin:2},f:"Coinvolgere tutti serve, ma non come prima riunione operativa."},
+{t:"Il fornitore, perché ci spieghi il suo assistente.",s:{coin:1},f:"Ascoltarlo può servire più avanti, ma non è il primo interlocutore: ha un interesse commerciale."}]},
+{k:"Prima regola provvisoria",q:"Quale indicazione pratica dareste agli uffici già domani mattina?",o:[
+{t:"Non inserire dati di lavoro in strumenti non autorizzati e far verificare gli output prima di usarli.",s:{prop:5,chia:5},f:"Semplice, applicabile subito, non blocca il lavoro."},
+{t:"Usate l'IA con buon senso e attenzione.",s:{prop:3,chia:1},f:"Nessuno vieta nulla, ma nessuno capisce cosa fare in concreto."},
+{t:"Vietato ogni uso dell'IA fino all'approvazione del regolamento.",s:{prop:1,chia:4},f:"Chiaro, ma sproporzionato: blocca tutto e sposta gli usi nell'ombra."},
+{t:"Ogni ufficio scelga gli strumenti che preferisce.",s:{prop:1,chia:2},f:"«Lasciamo fare a tutti»: niente coordinamento e nessuna tracciabilità."}]},
+{k:"Primo risultato concreto",q:"Che cosa dovrebbe esistere entro 30 giorni?",o:[
+{t:"Un elenco degli usi ricorrenti e delle decisioni ancora da prendere, con un responsabile per ciascuna.",s:{conc:5},f:"Realizzabile, verificabile, con persone e responsabilità chiare."},
+{t:"Una prima bozza di linee guida da provare con due uffici pilota.",s:{conc:4},f:"Ambizioso ma fattibile, se poggia sulla mappatura degli usi."},
+{t:"Una presentazione alla direzione sui rischi dell'IA.",s:{conc:2},f:"Informa, ma non produce decisioni né responsabilità."},
+{t:"Un regolamento completo approvato dalla giunta.",s:{conc:1},f:"Irrealistico in 30 giorni: meglio un risultato piccolo ma vero."}]}
+];
+var EV=[
+{k:"Subito: cosa fate?",o:[
+{t:"Segnalare la situazione ai canali interni appropriati e chiedere all'ufficio di non fare nuovi inserimenti in attesa di indicazioni.",v:5,f:"Gestione immediata attraverso i canali interni: nessun giudizio prematuro."},
+{t:"Decidere in aula se c'è stata una violazione.",v:2,f:"Con queste informazioni non si può stabilire: la valutazione spetta alle funzioni competenti."},
+{t:"Punire l'ufficio per dare l'esempio.",v:1,f:"Una punizione a caldo scoraggia le segnalazioni future."},
+{t:"Aspettare che la policy sia pronta.",v:0,f:"Il caso è già in corso: aspettare lascia aperto il problema."}]},
+{k:"In parallelo: cosa cambia nel mandato?",o:[
+{t:"Il caso entra nel mandato: mappatura e regola provvisoria coprono anche gli strumenti non autorizzati già in uso.",v:5,f:"Due tempi distinti: risposta al caso, poi regole per il futuro."},
+{t:"Il mandato resta invariato: sono due problemi separati.",v:3,f:"I tempi vanno distinti, ma il caso rivela proprio ciò che la mappatura deve cercare."},
+{t:"Si butta il mandato e si vieta tutto.",v:1,f:"Reazione sproporzionata: un caso non giustifica il blocco generale."},
+{t:"Il caso è isolato: nessuna modifica.",v:1,f:"Un caso scoperto è spesso la punta di un uso più diffuso."}]}
+];
+var CR={conc:"Concretezza",coin:"Coinvolgimento",prop:"Proporzione",chia:"Chiarezza",gest:"Gestione imprevisto"};
+var st={step:-1,name:"",pick:[],ev:[],order:[],evorder:[],left:600,run:false,tid:null,mid:false};
+var $=document.getElementById("app");
+
+function shuf(n){var a=[],i,j,t;for(i=0;i<n;i++)a.push(i);for(i=n-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t}return a}
+function fmt(s){var m=Math.floor(s/60),x=s%60;return m+":"+(x<10?"0":"")+x}
+function h(s){return s}
+function timerBtn(){return '<button class="timer'+(st.left<=60?' warn':'')+'" id="tm" aria-label="Timer">'+(st.run?'⏸ ':'⏱ ')+fmt(st.left)+'</button>'}
+function bar(){var d="";for(var i=0;i<6;i++)d+='<i class="'+(i<=st.step?'on':'')+'"></i>';return '<div class="bar"><div class="dots" aria-hidden="true">'+d+'</div>'+timerBtn()+'</div>'}
+function tick(){
+  if(!st.run)return;st.left--;
+  if(st.left<=300&&!st.mid&&st.step>=0&&st.step<5){st.mid=true;alert("Metà tempo: la carta imprevisto è in arrivo!")}
+  if(st.left<=0){st.left=0;st.run=false;clearInterval(st.tid)}
+  var t=document.getElementById("tm");if(t){t.className="timer"+(st.left<=60?" warn":"");t.textContent=(st.run?"⏸ ":"⏱ ")+fmt(st.left)}
+}
+function toggleTimer(){
+  if(st.run){st.run=false;clearInterval(st.tid)}else{if(st.left<=0)st.left=600;st.run=true;clearInterval(st.tid);st.tid=setInterval(tick,1000)}
+  var t=document.getElementById("tm");if(t){t.textContent=(st.run?"⏸ ":"⏱ ")+fmt(st.left)}
+}
+function bind(){var t=document.getElementById("tm");if(t)t.onclick=toggleTimer}
+
+function intro(){
+$.innerHTML='<h1>La prima riunione</h1><p class="lead">Un gioco di ruolo per gruppi di 4–5 persone.</p>'+
+'<div class="card"><h3>Lo scenario</h3><p>Nell\'ente non esiste ancora una policy sull\'IA. Alcuni dipendenti usano chatbot per preparare bozze. Un ufficio vorrebbe riassumere pratiche con uno strumento esterno. Un fornitore propone un assistente per rispondere ai cittadini.</p>'+
+'<div class="quote">Il dirigente chiede: «Da dove partiamo, senza bloccare tutto?»</div>'+
+'<h3>La vostra missione</h3><p>Consegnare un <b>mandato di avvio</b> di sole quattro righe, in 10 minuti. A metà tempo arriverà una carta imprevisto. Poi 60 secondi per presentare.</p>'+
+'<h3>Come si vince</h3><p>Non vince chi cita più norme, ma chi presenta un piano realizzabile, con persone e responsabilità chiare. Ogni criterio vale fino a 5 punti:</p>'+
+'<ul class="plain"><li><b>Concretezza</b>: la prima azione si può avviare davvero?</li><li><b>Coinvolgimento</b>: le persone giuste, con il motivo.</li><li><b>Proporzione</b>: né «vietiamo tutto» né «lasciamo fare a tutti».</li><li><b>Chiarezza</b>: un collega capirebbe l\'indicazione?</li><li><b>Gestione dell\'imprevisto</b>: risposta immediata e lavoro sulla policy.</li></ul>'+
+'<label for="gn"><b>Nome del gruppo</b></label><input type="text" id="gn" maxlength="40" placeholder="Es. Gruppo Laguna" value=""><button class="btn" id="go">Inizia la riunione</button></div>';
+document.getElementById("go").onclick=function(){
+  st.name=document.getElementById("gn").value.trim()||"Il vostro gruppo";
+  st.order=D.map(function(d){return shuf(d.o.length)});st.evorder=EV.map(function(d){return shuf(d.o.length)});
+  st.pick=[];st.ev=[];st.step=0;st.left=600;st.mid=false;render()};
+}
+
+function line(i){
+var d=D[i],sel=st.pick[i];
+$.innerHTML=bar()+'<div class="card"><span class="tag">Riga '+(i+1)+' di 4 · '+d.k+'</span><h2>'+d.q+'</h2><p class="lead">Discutete in gruppo e scegliete la formulazione che mettereste nel mandato.</p><div class="opts" id="os"></div><div class="row">'+(i>0?'<button class="btn ghost" id="bk">Indietro</button>':'')+'<button class="btn" id="nx" '+(sel==null?'disabled':'')+'>'+(i<3?'Conferma e continua':'Conferma: arriva l\'imprevisto')+'</button></div></div>';
+var os=document.getElementById("os");
+st.order[i].forEach(function(k){var b=document.createElement("button");b.className="opt";b.textContent=d.o[k].t;b.setAttribute("aria-pressed",sel===k);b.onclick=function(){st.pick[i]=k;line(i)};os.appendChild(b)});
+document.getElementById("nx").onclick=function(){st.step++;render()};
+var bk=document.getElementById("bk");if(bk)bk.onclick=function(){st.step--;render()};
+bind();
+}
+
+function event(){
+var ok=st.ev[0]!=null&&st.ev[1]!=null;
+$.innerHTML=bar()+'<div class="event"><span class="tag">Carta imprevisto</span><h2>Scoprite che un ufficio ha già inserito documenti di lavoro in un chatbot non autorizzato.</h2><p style="margin:8px 0 0">La vostra proposta cambia? Attenzione: con queste informazioni non potete stabilire se c\'è stata una violazione. Distinguete <b>due tempi</b>: gestire il caso subito e costruire le regole per il futuro.</p></div><div id="qs"></div><div class="row"><button class="btn ghost" id="bk">Indietro</button><button class="btn" id="nx" '+(ok?'':'disabled')+'>Vedi il risultato</button></div>';
+var qs=document.getElementById("qs");
+EV.forEach(function(q,qi){
+  var w=document.createElement("div");w.innerHTML='<h3 style="margin-bottom:6px">'+q.k+'</h3>';
+  var os=document.createElement("div");os.className="opts";
+  st.evorder[qi].forEach(function(k){var b=document.createElement("button");b.className="opt";b.textContent=q.o[k].t;b.setAttribute("aria-pressed",st.ev[qi]===k);b.onclick=function(){st.ev[qi]=k;event()};os.appendChild(b)});
+  w.appendChild(os);qs.appendChild(w)});
+document.getElementById("nx").onclick=function(){st.step++;st.left=60;st.run=false;clearInterval(st.tid);render()};
+document.getElementById("bk").onclick=function(){st.step--;render()};
+bind();
+}
+
+function score(){
+var acc={conc:[],coin:[],prop:[],chia:[],gest:[]};
+D.forEach(function(d,i){var s=d.o[st.pick[i]].s;for(var k in s)acc[k].push(s[k])});
+acc.gest.push(Math.round((EV[0].o[st.ev[0]].v+EV[1].o[st.ev[1]].v)/2));
+var r={},tot=0;for(var k in acc){var a=acc[k];r[k]=Math.round(a.reduce(function(x,y){return x+y},0)/a.length);tot+=r[k]}
+return{r:r,tot:tot};
+}
+
+function result(){
+var sc=score(),t=sc.tot,lv=t>=21?"Mandato pronto per partire":t>=15?"Buona base, da affinare":t>=9?"Da rivedere insieme":"Si riparte da capo";
+var bars="";for(var k in CR){bars+='<div class="crit"><span>'+CR[k]+'</span><div class="track"><div class="fill" style="width:'+(sc.r[k]*20)+'%"></div></div><b>'+sc.r[k]+'/5</b></div>'}
+var mand="";D.forEach(function(d,i){var o=d.o[st.pick[i]];mand+='<div class="rev"><b>'+(i+1)+'. '+d.k+'</b>'+o.t+'<br><span class="'+(Math.max.apply(null,Object.values(o.s))>=4?'good':'bad')+'">'+o.f+'</span></div>'});
+var ev="";EV.forEach(function(q,qi){var o=q.o[st.ev[qi]];ev+='<div class="rev"><b>Imprevisto · '+q.k+'</b>'+o.t+'<br><span class="'+(o.v>=4?'good':'bad')+'">'+o.f+'</span></div>'});
+$.innerHTML=bar()+'<h1 id="rt"></h1><div class="card"><div class="big">'+t+'<span style="font-size:.45em;color:var(--mute)">/25</span></div><h2>'+lv+'</h2>'+bars+'</div>'+
+'<div class="card" style="margin-top:16px"><h3>Il vostro mandato di avvio</h3>'+mand+ev+'<div class="row" style="margin-top:14px"><button class="btn ghost" id="cp">Copia il mandato</button></div></div>'+
+'<div class="card" style="margin-top:16px"><h3>Due tempi, due lavori</h3><div class="two"><div><b>Subito</b><br>Segnalare il caso ai canali interni appropriati; le funzioni competenti valutano se c\'è stata una violazione.</div><div><b>In parallelo</b><br>Mappare gli usi, dare una regola provvisoria, preparare le decisioni sulla policy.</div></div>'+
+'<h3>Una possibile risposta forte</h3><div class="strong">«Prima mappiamo strumenti e usi già presenti. Facciamo una riunione con responsabili dei processi, RTD/ICT e le funzioni privacy e sicurezza pertinenti. Nel frattempo indichiamo agli uffici di non inserire dati di lavoro in strumenti non autorizzati e di far verificare gli output prima di usarli. Entro 30 giorni produciamo un elenco degli usi ricorrenti e delle decisioni ancora da prendere.»</div>'+
+'<p class="lead">Non è «la soluzione unica»: serve a uscire con un\'idea credibile di come iniziare, non con l\'illusione di aver scritto un regolamento in venti minuti. Ora avete 60 secondi per presentare: usate il timer.</p><button class="btn" id="rs">Gioca di nuovo</button></div>';
+document.getElementById("rt").textContent=st.name+": l'esito";
+document.getElementById("rs").onclick=function(){st.step=-1;st.run=false;clearInterval(st.tid);render()};
+document.getElementById("cp").onclick=function(){
+  var x="Mandato di avvio – "+st.name+"\n";D.forEach(function(d,i){x+=(i+1)+". "+d.k+": "+d.o[st.pick[i]].t+"\n"});
+  try{navigator.clipboard.writeText(x).then(function(){document.getElementById("cp").textContent="Copiato"},function(){document.getElementById("cp").textContent="Copia non riuscita"})}catch(e){document.getElementById("cp").textContent="Copia non riuscita"}};
+bind();
+}
+
+function render(){
+  window.scrollTo(0,0);
+  if(st.step<0){intro();return}
+  if(st.step<4){line(st.step);return}
+  if(st.step===4){event();return}
+  result();
+}
+render();
+</script>
+</body>
+</html>
