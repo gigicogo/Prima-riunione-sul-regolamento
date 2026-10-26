@@ -4,6 +4,11 @@
 
 L’obiettivo non è scrivere un regolamento completo in pochi minuti, ma produrre un **mandato di avvio**: quattro indicazioni concrete, condivise e immediatamente utilizzabili.
 
+---
+
+## 🔗 Demo on line
+https://gigicogo.github.io/Prima-riunione-sul-regolamento/
+
 ## 🎯 A chi è rivolto
 
 Il gioco è pensato per:
