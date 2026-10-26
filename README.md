@@ -5,6 +5,8 @@
 L’obiettivo non è scrivere un regolamento completo in pochi minuti, ma produrre un **mandato di avvio**: quattro indicazioni concrete, condivise e immediatamente utilizzabili.
 
 ---
+<img width="953" height="438" alt="Screenshot 2026-10-26 alle 09 50 58" src="https://github.com/user-attachments/assets/ea378cdb-340c-46f1-a947-8ad140b5ab98" />
+
 
 ## 🔗 Demo on line
 https://gigicogo.github.io/Prima-riunione-sul-regolamento/
