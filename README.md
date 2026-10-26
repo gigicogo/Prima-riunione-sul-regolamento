@@ -9,7 +9,7 @@ L’obiettivo non è scrivere un regolamento completo in pochi minuti, ma produr
 
 
 ## 🔗 Demo on line
-https://gigicogo.github.io/Prima-riunione-sul-regolamento/
+Demo on line su Github Pages: https://gigicogo.github.io/Prima-riunione-sul-regolamento/
 
 ## 🎯 A chi è rivolto
 
