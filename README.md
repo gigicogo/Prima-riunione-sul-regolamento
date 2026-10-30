@@ -135,18 +135,20 @@ L’interfaccia prevede:
 - Esportazione del mandato in PDF o Markdown.
 - Versione in inglese.
 - Punteggio comparativo tra
+---
 
-- 📄 Licenza
+## 📄 Licenza
 
-Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri formatori o altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file LICENSE del repo.
+Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri formatori o altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file `LICENSE` del repo.
 
-👤 Autore e contesto
+## 👤 Autore e contesto
 
-Gianluigi Cogo Content creator e technical writer interessato ad AI generativa, automazioni, viaggi e strumenti digitali. Consulente e docente sui temi dell'IA generativa nella Pubblica Amministrazione.
+**Gianluigi Cogo**  
+Content creator e technical writer interessato ad AI generativa, automazioni, viaggi e strumenti digitali. Consulente e docente sui temi dell’IA generativa nella Pubblica Amministrazione.
 
-L'app nasce come esercitazione nel percorso operativo "L'IA nella Pubblica Amministrazione — Percorso operativo per l'uso consapevole, sicuro e governato dell'IA generativa" (20 ore: percorso base per funzionari ed esecutori + modulo governance per direttori e dirigenti). Per info sul corso contattatemi usando i social qui sotto.
+Il progetto nasce come esercitazione di sperimentazione e divulgazione sull’uso dell’AI generativa per esplorare testi complessi. Per info sui miei percorsi e contenuti, contattami usando i social qui sotto.
 
-📮 Newsletter: gigicogo.substack.com
-📝 Blog: medium.com/webeconoscenza
-▶️ YouTube: youtube.com/@gigicogo
-💼 LinkedIn: linkedin.com/in/gigicogo
+- 📮 **Newsletter:** [gigicogo.substack.com](https://gigicogo.substack.com)
+- 📝 **Blog:** [medium.com/webeconoscenza](https://medium.com/webeconoscenza)
+- ▶️ **YouTube:** [youtube.com/@gigicogo](https://youtube.com/@gigicogo)
+- 💼 **LinkedIn:** [linkedin.com/in/gigicogo](https://www.linkedin.com/in/gigicogo)
