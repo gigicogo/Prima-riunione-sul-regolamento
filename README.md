@@ -134,8 +134,7 @@ L’interfaccia prevede:
 - Modalità per docenti con proiezione delle risposte dei gruppi.
 - Esportazione del mandato in PDF o Markdown.
 - Versione in inglese.
-- Punteggio comparativo tra
----
+
 
 ## 📄 Licenza
 
