@@ -1,153 +1,56 @@
-# 🏛️ La prima riunione: IA in un ente pubblico
+# La prima riunione sull’IA
 
-**La prima riunione** è un gioco di ruolo interattivo per gruppi di 4–5 persone. Simula il momento in cui un ente pubblico deve decidere come iniziare a governare l’uso dell’intelligenza artificiale, senza bloccare tutto e senza lasciare che gli usi restino nell’ombra.
+Un’attività di avvio per il corso IA del Comune di Genova. Il partecipante prepara una **proposta di mandato da discutere con chi decide**, scegliendo quattro formulazioni e affrontando un imprevisto. La modalità iniziale è individuale; si può scegliere anche il lavoro in gruppi di 4–5.
 
-L’obiettivo non è scrivere un regolamento completo in pochi minuti, ma produrre un **mandato di avvio**: quattro indicazioni concrete, condivise e immediatamente utilizzabili.
+Durata: **10 minuti di lavoro**, poi confronto in aula. Per la restituzione è disponibile un timer separato da 60 secondi.
 
----
-<img width="953" height="438" alt="Screenshot 2026-10-26 alle 09 50 58" src="https://github.com/user-attachments/assets/ea378cdb-340c-46f1-a947-8ad140b5ab98" />
+## Che cosa cambia nella versione 2
 
+- Alternative plausibili, con più formulazioni valide e risposte parzialmente adeguate.
+- Motivazione finale breve, da leggere con il docente.
+- Criticità separate dal punteggio: un 23/25 può ancora richiedere il riesame della gestione dell’imprevisto.
+- Prime decisioni registrate conservate insieme alle revisioni.
+- Timer automatico, pausa e ripresa. Il tempo guida non blocca la consegna.
+- Imprevisto dopo cinque minuti di tempo attivo, oppure prima se si completano le quattro decisioni.
+- Salvataggio nel browser e ripresa dopo un aggiornamento della pagina.
+- Scheda HTML stampabile, copia completa della proposta, esportazione Markdown e JSON.
 
-## 🔗 Demo on line
-Demo on line su Github Pages: https://gigicogo.github.io/Prima-riunione-sul-regolamento/
+## Provarla
 
-## 🎯 A chi è rivolto
+Apri `index.html` in un browser moderno. Non occorrono installazioni, servizi IA, chiavi API o account. La pagina è autosufficiente e funziona anche offline. Le risposte non sono inviate al docente: indica ai partecipanti il canale del corso per restituire la scheda.
 
-Il gioco è pensato per:
+Il salvataggio dipende dalle impostazioni del browser. Per un uso in aula uniforme è preferibile l’indirizzo GitHub Pages; scaricare la scheda resta il modo per conservare e restituire il risultato.
 
-- responsabili di processi e uffici;
-- referenti ICT e trasformazione digitale;
-- funzioni privacy, sicurezza e legali;
-- formatori e docenti;
-- gruppi di lavoro su innovazione, AI e digitalizzazione nella PA.
+## Aggiornare il sito esistente su GitHub Pages
 
-È utile anche in contesti formativi, laboratori universitari, incontri di amministrazione pubblica e sessioni di sensibilizzazione sull’uso responsabile dell’AI generativa.
+Repository di riferimento: https://github.com/gigicogo/Prima-riunione-sul-regolamento
 
-## 🧩 Lo scenario
+1. Sostituisci **`index.html`** nella cartella principale del repository con quello contenuto in questo pacchetto.
+2. Puoi aggiornare anche il `README.md` con questo testo.
+3. Attendi la conclusione della pubblicazione di GitHub Pages, quindi riapri il sito con un aggiornamento completo della pagina.
 
-Nell’ente non esiste ancora una policy sull’IA. Alcuni dipendenti usano chatbot per preparare bozze, un ufficio vorrebbe riassumere pratiche con uno strumento esterno e un fornitore propone un assistente per rispondere ai cittadini.
+L’indirizzo pubblico resta quello del repository: https://gigicogo.github.io/Prima-riunione-sul-regolamento/
 
-Il dirigente pone la domanda centrale:
+Se GitHub Pages non è ancora configurato: **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
 
-> «Da dove partiamo, senza bloccare tutto?»
+Conserva **`docente/GUIDA_DOCENTE.html`** fuori dal repository pubblico destinato ai partecipanti: contiene le soluzioni e la lettura del punteggio. Come per ogni applicazione statica, il codice e i criteri di valutazione restano tecnicamente ispezionabili; questa è un’attività didattica guidata, non una piattaforma per esami sorvegliati.
 
-I gruppi devono rispondere costruendo un mandato operativo, non un elenco di buone intenzioni.
+## Il contesto
 
-## 🕹️ Come si gioca
+L’ente fittizio ha già un ambiente istituzionale autorizzato per testi pubblici, ma non ha ancora ricostruito tutti gli altri utilizzi dell’IA. La direzione chiede una proposta per i primi trenta giorni. I funzionari preparano gli elementi e rendono visibili le decisioni aperte; autorizzare nuovi impieghi e adottare le regole spetta ai soggetti competenti.
 
-1. **Forma un gruppo** di 4–5 persone.
-2. **Inserisci il nome del gruppo** e avvia la riunione.
-3. **Discuti le quattro domande** e scegli, per ciascuna, la formulazione da inserire nel mandato.
-4. **Gestisci la carta imprevisto**: un ufficio ha già inserito documenti di lavoro in un chatbot non autorizzato.
-5. **Prepara la presentazione finale** in 60 secondi.
-6. **Ottieni il punteggio** e leggi il feedback sulle scelte fatte.
+L’imprevisto riguarda un documento interno già inserito in un chatbot non autorizzato. Il partecipante deve distinguere gestione immediata dell’evento e lavoro sulle regole, senza dichiarare automaticamente una violazione o considerare risolto il problema con la cancellazione della chat.
 
-Il timer parte da **10 minuti**. A metà tempo compare un avviso che segnala l’arrivo della carta imprevisto.
+Tutti i fatti e gli uffici del caso sono fittizi. Non descrivono strumenti, procedure o incidenti reali del Comune di Genova. Le condizioni dell’ambiente sono una premessa del laboratorio, non un’autorizzazione per impieghi reali.
 
-## 📋 Il mandato di avvio
+## Dati e scheda finale
 
-Il gruppo deve rispondere a quattro domande:
+Il codice o alias è facoltativo. I progressi restano nel browser, con una chiave distinta da quella della precedente applicazione e dalle altre esercitazioni del corso. Un nuovo tentativo sostituisce quello conservato per questa versione: scarica prima la scheda se vuoi mantenerlo.
 
-| # | Tema | Domanda |
-|---:|---|---|
-| 1 | Prima cosa da capire | Quale informazione manca sull’uso attuale dell’IA? |
-| 2 | Persone da coinvolgere | Chi chiamereste alla prima riunione, e perché? |
-| 3 | Prima regola provvisoria | Quale indicazione pratica dareste agli uffici già domani mattina? |
-| 4 | Primo risultato concreto | Che cosa dovrebbe esistere entro 30 giorni? |
+La scheda comprende proposta, due risposte all’imprevisto, motivazione, questione aperta, profilo, criticità aperte e recuperate, prime decisioni e revisioni. Il docente valuta il significato della motivazione: il software ne controlla soltanto la compilazione minima.
 
-Alla fine, il gioco genera un **mandato di avvio** copiabile negli appunti, utile come punto di partenza per una discussione reale.
+## Progetto
 
-## ⚠️ La carta imprevisto
+Pagina statica in un solo HTML, con CSS e JavaScript incorporati e nessuna dipendenza di rete per il funzionamento. Le modifiche a questa versione sono predisposte come file da caricare sul repository; il pacchetto non pubblica automaticamente il sito.
 
-A metà percorso emerge che un ufficio ha già inserito documenti di lavoro in un chatbot non autorizzato.
-
-Il gioco invita a distinguere due piani di lavoro:
-
-- **Subito:** segnalare il caso ai canali interni appropriati e sospendere nuovi inserimenti in attesa di indicazioni.
-- **In parallelo:** mappare gli usi esistenti, stabilire una regola provvisoria e preparare le decisioni sulla policy.
-
-Il caso non permette di stabilire automaticamente se sia stata commessa una violazione: la valutazione spetta alle funzioni competenti.
-
-## 🏆 Criteri di valutazione
-
-Il punteggio massimo è **25 punti**. Non vince chi cita più norme, ma chi propone un piano realizzabile.
-
-| Criterio | Punteggio massimo | Cosa valuta |
-|---|---:|---|
-| Concretezza | 5 | Se la prima azione può essere avviata davvero |
-| Coinvolgimento | 5 | Se sono coinvolti i ruoli giusti, con un motivo chiaro |
-| Proporzione | 5 | Se la risposta evita sia il divieto totale sia il laissez-faire |
-| Chiarezza | 5 | Se un collega capirebbe cosa fare |
-| Gestione dell’imprevisto | 5 | Se il gruppo distingue risposta immediata e lavoro sulla policy |
-
-## 🧠 Una possibile risposta forte
-
-Il gioco propone, a titolo esemplificativo, questo tipo di mandato:
-
-> «Prima mappiamo strumenti e usi già presenti. Facciamo una riunione con responsabili dei processi, RTD/ICT e le funzioni privacy e sicurezza pertinenti. Nel frattempo indichiamo agli uffici di non inserire dati di lavoro in strumenti non autorizzati e di far verificare gli output prima di usarli. Entro 30 giorni produciamo un elenco degli usi ricorrenti e delle decisioni ancora da prendere.»
-
-Non è l’unica soluzione possibile: serve a mostrare come uscire da una riunione con un’idea credibile, responsabilità chiare e un primo risultato verificabile.
-
-## 💻 Come usarlo
-
-Il progetto è un’applicazione web statica in un unico file HTML: non richiede installazione, database o account.
-
-### Aprire il gioco
-
-1. Scarica o clona il repository.
-2. Apri il file HTML con un browser moderno.
-3. Condividi lo schermo o proietta la pagina durante la sessione.
-
-In alternativa, se il file è pubblicato tramite GitHub Pages o un altro hosting statico, basta condividere il link ai partecipanti.
-
-### Clonare il repository
-
-```bash
-git clone [https://github.com/gigicogo/Prima-riunione-sul-regolamento.git](https://github.com/gigicogo/Prima-riunione-sul-regolamento.git)
-cd Prima-riunione-sul-regolamento
-```
-
-Poi apri il file HTML nel browser.
-
-## 🛠️ Tecnologie
-
-- HTML5
-- CSS3, con supporto a tema chiaro/scuro
-- JavaScript vanilla
-- Interfaccia responsive per desktop e mobile
-- Nessuna dipendenza esterna obbligatoria
-
-## ♿ Accessibilità
-
-L’interfaccia prevede:
-
-- contrasto elevato tra testo e sfondo;
-- tema chiaro e tema scuro;
-- layout responsive;
-- focus visibile su pulsanti e campi;
-- rispetto della preferenza `prefers-reduced-motion`;
-- pulsanti con etichette accessibili.
-
-## 🧪 Possibili evoluzioni
-
-- Aggiunta di nuovi scenari e carte imprevisto.
-- Modalità per docenti con proiezione delle risposte dei gruppi.
-- Esportazione del mandato in PDF o Markdown.
-- Versione in inglese.
-
-
-## 📄 Licenza
-
-Da definire: si suggerisce una licenza aperta (es. MIT o CC BY 4.0) per favorire il riuso da parte di altri formatori o altri enti. Sostituisci questo paragrafo con il testo della licenza scelta e il file `LICENSE` del repo.
-
-## 👤 Autore e contesto
-
-**Gianluigi Cogo**  
-Content creator e technical writer interessato ad AI generativa, automazioni, viaggi e strumenti digitali. Consulente e docente sui temi dell’IA generativa nella Pubblica Amministrazione.
-
-Il progetto nasce come esercitazione di sperimentazione e divulgazione sull’uso dell’AI generativa per esplorare testi complessi. Per info sui miei percorsi e contenuti, contattami usando i social qui sotto.
-
-- 📮 **Newsletter:** [gigicogo.substack.com](https://gigicogo.substack.com)
-- 📝 **Blog:** [medium.com/webeconoscenza](https://medium.com/webeconoscenza)
-- ▶️ **YouTube:** [youtube.com/@gigicogo](https://youtube.com/@gigicogo)
-- 💼 **LinkedIn:** [linkedin.com/in/gigicogo](https://www.linkedin.com/in/gigicogo)
+Ideazione didattica: **Gianluigi Cogo**. Versione **2.0.0**, 12 novembre 2026.
