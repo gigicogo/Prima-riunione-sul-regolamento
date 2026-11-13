@@ -4,36 +4,6 @@ Un’attività di avvio per il corso IA del Comune di Genova. Il partecipante pr
 
 Durata: **10 minuti di lavoro**, poi confronto in aula. Per la restituzione è disponibile un timer separato da 60 secondi.
 
-## Che cosa cambia nella versione 2
-
-- Alternative plausibili, con più formulazioni valide e risposte parzialmente adeguate.
-- Motivazione finale breve, da leggere con il docente.
-- Criticità separate dal punteggio: un 23/25 può ancora richiedere il riesame della gestione dell’imprevisto.
-- Prime decisioni registrate conservate insieme alle revisioni.
-- Timer automatico, pausa e ripresa. Il tempo guida non blocca la consegna.
-- Imprevisto dopo cinque minuti di tempo attivo, oppure prima se si completano le quattro decisioni.
-- Salvataggio nel browser e ripresa dopo un aggiornamento della pagina.
-- Scheda HTML stampabile, copia completa della proposta, esportazione Markdown e JSON.
-
-## Provarla
-
-Apri `index.html` in un browser moderno. Non occorrono installazioni, servizi IA, chiavi API o account. La pagina è autosufficiente e funziona anche offline. Le risposte non sono inviate al docente: indica ai partecipanti il canale del corso per restituire la scheda.
-
-Il salvataggio dipende dalle impostazioni del browser. Per un uso in aula uniforme è preferibile l’indirizzo GitHub Pages; scaricare la scheda resta il modo per conservare e restituire il risultato.
-
-## Aggiornare il sito esistente su GitHub Pages
-
-Repository di riferimento: https://github.com/gigicogo/Prima-riunione-sul-regolamento
-
-1. Sostituisci **`index.html`** nella cartella principale del repository con quello contenuto in questo pacchetto.
-2. Puoi aggiornare anche il `README.md` con questo testo.
-3. Attendi la conclusione della pubblicazione di GitHub Pages, quindi riapri il sito con un aggiornamento completo della pagina.
-
-L’indirizzo pubblico resta quello del repository: https://gigicogo.github.io/Prima-riunione-sul-regolamento/
-
-Se GitHub Pages non è ancora configurato: **Settings → Pages → Deploy from a branch → main → /(root) → Save**.
-
-Conserva **`docente/GUIDA_DOCENTE.html`** fuori dal repository pubblico destinato ai partecipanti: contiene le soluzioni e la lettura del punteggio. Come per ogni applicazione statica, il codice e i criteri di valutazione restano tecnicamente ispezionabili; questa è un’attività didattica guidata, non una piattaforma per esami sorvegliati.
 
 ## Il contesto
 
